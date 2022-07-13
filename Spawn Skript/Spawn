@@ -1,0 +1,32 @@
+command /setspawn:
+	permission: op
+	permission message: &cNo Permission!
+	description: Set spawn at your location.
+	trigger:
+		message "&6You have &cset spawn&6 at your location!"
+		set {spawn} to location of player
+
+command /spawn [<player>]:
+	description: Teleport you to spawn.
+	trigger:
+		if {spawn} isn't set:
+			message "&4Error:&c spawn is not set!"
+			stop
+		else:
+			argument 1 is not set:
+				if player has permission "op":
+				teleport player to {spawn}
+				send player title "&a&lTELEPORTED" with subtitle "&7Teleported you to spawn." for 1 second
+				play sound "block.note_block.pling" with volume 1 and pitch 1 at player for player
+				stop trigger
+			else:
+				if sender has permission "spawn.spawn.others":
+					if argument is online:
+						teleport argument to {spawn}
+					if sender is a player:
+						message "&6You have been teleported to spawn by &c%player%&6." to argument 1
+					if sender is not a player:
+						message "&6You have been teleported to spawn by &cConsole&6." to argument 1
+						teleport player to {spawn}
+				else:
+					message "&cSorry, but you don't have permission to execute this command!"
