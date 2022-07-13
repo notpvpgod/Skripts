@@ -1,0 +1,20 @@
+command /mutechat:
+    permission: op
+    permission message: &cNo Permission!
+    trigger:
+        if {Globalchat} is not set:
+            set {Globalchat} to true
+            broadcast "&7%player% &cmuted chat."
+            stop trigger
+
+        if {Globalchat} is set:
+            clear {Globalchat}
+            broadcast "&7%player% &aunmuted chat."
+
+on chat:
+    if {Globalchat} is true:
+        if player has permission "op":
+            stop trigger
+        else:
+            cancel event
+            send "&cChat is currently muted."
