@@ -1,6 +1,6 @@
-**My First and Last Skript**
+**My First Skript**
 
-*I will no longer post Skripting projects, I will move onto Java projects instead, this skript is very simple.*
+*This skript is very simple, there should be no glitches.*
 
 This Skript sends the player a hello message with the command "/helloworld".
 
