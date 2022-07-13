@@ -1,0 +1,10 @@
+command broadcast [<text>]:
+    permission: op
+    permission message: &cNo Permission!
+    trigger:
+        if arg-1 is not set:
+            message "&CUsage: &7/broadcast <Message>"
+        else:
+            broadcast ""
+            broadcast "&e&lANNOUNCEMENT &r&8- &r&f%coloured arg-1%"
+            broadcast ""
