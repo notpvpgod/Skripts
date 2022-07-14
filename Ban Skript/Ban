@@ -1,0 +1,21 @@
+command /ban [<player>] [<text>]:
+   permisison: ban.use
+   permission message: &cNo Permission!
+   trigger:
+       if arg 1 isn't set:
+         send "&cUsage: /ban (player) (reason)"
+       if arg 1 is set:
+         kick arg 1
+         ban arg 1
+         broadcast "&b%player% &fhas banned &b%arg 1% &ffrom ServerName"
+         broadcast "&fReason: &c%arg 2%"
+
+command /unban [<offline player>] [<text>]:
+   permission: ban.sk
+   permission message: &cNo Permission!
+   trigger:
+       if arg 1 isn't set:
+         send "&cUsage: /unban (player) (reason)"
+       if arg 1 is set:
+         broadcast "&b%player% &fhas unbanned &b%arg 1%"
+         broadcast "&fReason: &c%arg 2%"
