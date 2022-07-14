@@ -1,0 +1,7 @@
+command /heal [<player>]:
+	permission: heal.use
+	trigger:
+    	if arg-1 is not set:
+        	set health of player to 10
+        else:
+        	set health of arg-1 to 10
